@@ -6,12 +6,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82D77C01-8C8C-41BF-B163-1427F730446E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SMSBoomGUI</RootNamespace>
+    <RootNamespace>GUI</RootNamespace>
     <AssemblyName>SMSBoomGUI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -25,7 +26,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,17 +36,31 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\favicon %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\KCNAPI\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -54,53 +69,118 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs">
+    <Compile Include="GUI\Code\AlphaBlendTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ErrorForm.cs">
+    <Compile Include="GUI\Code\HttpHelper.cs" />
+    <Compile Include="GUI\Form\download.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
+    <Compile Include="GUI\Form\download.Designer.cs">
+      <DependentUpon>download.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="GUI\Form\Proxy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="GUI\Form\Proxy.designer.cs">
+      <DependentUpon>Proxy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControl\downloadfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControl\downloadfile.designer.cs">
+      <DependentUpon>downloadfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Code\Ver.cs" />
+    <Compile Include="GUI\Code\win32.cs" />
+    <Compile Include="GUI\Form\NewWelcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form\NewWelcome.Designer.cs">
+      <DependentUpon>NewWelcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Code\RichEdit50.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Code\INI.cs" />
+    <Compile Include="GUI\Code\Msg.cs" />
+    <Compile Include="GUI\Form\MsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form\MsgForm.Designer.cs">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="GUI\Code\Program.cs" />
+    <Compile Include="GUI\UserControl\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControl\UserControl2.Designer.cs">
+      <DependentUpon>UserControl2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="GUI\UserControl\UserControl1.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SetProxy.cs">
-      <SubType>Form</SubType>
+    <Compile Include="GUI\UserControl\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
-    <Compile Include="SetProxy.Designer.cs">
-      <DependentUpon>SetProxy.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Code\AlphaBlendTextBox.resx">
+      <DependentUpon>AlphaBlendTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="GUI\Form\download.resx">
+      <DependentUpon>download.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form\Proxy.resx">
+      <DependentUpon>Proxy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControl\downloadfile.resx">
+      <DependentUpon>downloadfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form\NewWelcome.resx">
+      <DependentUpon>NewWelcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form\MsgForm.resx">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControl\UserControl2.resx">
+      <DependentUpon>UserControl2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SetProxy.resx">
-      <DependentUpon>SetProxy.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\UserControl\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.manifest" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -108,13 +188,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\下载客户端.png" />
+    <None Include="Resources\KCN_Logo_W_B.png" />
+    <None Include="Resources\WelcomeImage1.png" />
+    <None Include="Resources\载入.png" />
+    <None Include="Resources\InfoBg.png" />
+    <None Include="Resources\HELP.png" />
+    <None Include="Resources\返回.png" />
+    <None Include="Resources\高级选项.png" />
+    <None Include="Resources\关于程序.png" />
+    <None Include="Resources\常规设置.png" />
+    <None Include="Resources\一键结束服务-按钮.png" />
+    <None Include="Resources\setup-4.png" />
+    <None Include="Resources\一键启动服务-按钮.png" />
+    <None Include="Resources\small-1.png" />
+    <None Include="Resources\close-2.png" />
+    <None Include="Resources\close-3.png" />
+    <None Include="Resources\ABOUT2.png" />
     <Content Include="Resources\favicon %281%29.ico" />
+    <None Include="Resources\No1.png" />
+    <None Include="Resources\Yes1.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\Programmer.targetsize-64_contrast-white.png" />
     <None Include="Resources\close.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
