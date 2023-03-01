@@ -1,10 +1,10 @@
 # SMSBoomGUI
-![Logo](.\Resources\SMSBoomGUI.png)
+![Logo](https://raw.githubusercontent.com/JDDKCN/SMSBoomGUI/main/Resources/SMSBoomGUI.png)
 ### 此项目是给短信轰炸软件 "SMSBoom" 写的GUI界面，使用C#编写。
 ---
 ## 软件截图
 - v1.3.0 - 2023/03/01
-![Pic1](.\Resources\APP01.PNG)
+![Pic1](https://raw.githubusercontent.com/JDDKCN/SMSBoomGUI/main/Resources/APP01.png)
 
 ---
 ## 使用方法
