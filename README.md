@@ -1,6 +1,9 @@
 # SMSBoomGUI
-![Logo](https://raw.githubusercontent.com/JDDKCN/SMSBoomGUI/main/Resources/SMSBoomGUI.png)
-### 此项目是给短信轰炸软件 "SMSBoom" 写的GUI界面，使用C#编写。
+
+<p align="center">
+<img src="https://socialify.git.ci/JDDKCN/SMSBoomGUI/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com/u/103011451?v=4&name=1&owner=1&pulls=1&stargazers=1&theme=Light" align="center" alt="Github Stats" />
+</p>
+
 ---
 ## 软件截图
 - v1.3.0 - 2023/03/01
